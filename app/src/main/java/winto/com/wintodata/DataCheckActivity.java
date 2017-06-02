@@ -3,6 +3,7 @@ package winto.com.wintodata;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -65,11 +66,20 @@ public class DataCheckActivity extends BaseActivity {
     @BindView(R.id.et_input_6_result) EditText etInput_6_result;
     @BindView(R.id.rb_input_6_check) CheckBox rb_6_check;
 
-    @BindView(R.id.btn_calc)
-    Button btnCalc;
-    @BindView(R.id.btn_confirm)
-    Button btnConfirm;
+    @BindView(R.id.btn_calc) Button btnCalc;
+    @BindView(R.id.btn_confirm) Button btnConfirm;
     @BindView(R.id.btn_reset) Button btnReset;
+    @BindView(R.id.btn_screenshot) Button btnScreenShot;
+
+    @OnClick(R.id.btn_screenshot)
+    public void onClickScreenShot() {
+        doScreenShot(this, btnScreenShot);
+    }
+
+    @Override
+    protected View getScreenShotButton() {
+        return btnScreenShot;
+    }
 
     @OnClick(R.id.btn_reset)
     public void onClickReset() {
@@ -159,6 +169,16 @@ public class DataCheckActivity extends BaseActivity {
             Toast.makeText(DataCheckActivity.this, "请选取三组数据", Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    @Override
+    public View[] getAllEditText() {
+        return new View[]{etInput_1_start, etInput_1_end, etInput_1_standard, etInput_1_diff, etInput_1_result,
+                etInput_2_start, etInput_2_end, etInput_2_standard, etInput_2_diff, etInput_2_result,
+                etInput_3_start, etInput_3_end, etInput_3_standard, etInput_3_diff, etInput_3_result,
+                etInput_4_start, etInput_4_end, etInput_4_standard, etInput_4_diff, etInput_4_result,
+                etInput_5_start, etInput_5_end, etInput_5_standard, etInput_5_diff, etInput_5_result,
+                etInput_6_start, etInput_6_end, etInput_6_standard, etInput_6_diff, etInput_6_result,};
     }
 
     private ArrayList<Double> getDataByIndex(ArrayList<Integer> indexs) {
@@ -295,7 +315,7 @@ public class DataCheckActivity extends BaseActivity {
     }
 
     private void initData() {
-        ArrayList<String> data = SharePreferenceUtils.getAllFlowData(DataCheckActivity.this);
+        ArrayList<String> data = SharePreferenceUtils.getAllDataCheckData(DataCheckActivity.this);
         if (data.size() >= 5) {
             int base = 0;
             etInput_1_start.setText(data.get(base));
@@ -407,6 +427,6 @@ public class DataCheckActivity extends BaseActivity {
             data.add(etInput_6_result.getText().toString());
         }
 
-        SharePreferenceUtils.saveAllFlowData(DataCheckActivity.this, data);
+        SharePreferenceUtils.saveAllDataCheckData(DataCheckActivity.this, data);
     }
 }

@@ -622,32 +622,47 @@
 
                 <Button
                         android:id="@+id/btn_calc"
-                        android:layout_width="100dp"
+                        android:layout_width="0dp"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:text="计算误差"
                         android:textColor="@color/theme_blue"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="10dp" />
 
                 <Button
                         android:id="@+id/btn_confirm"
-                        android:layout_width="100dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:text="确认选择"
                         android:textColor="@color/theme_blue"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:layout_marginBottom="10dp" />
 
                 <Button
                         android:id="@+id/btn_reset"
-                        android:layout_width="100dp"
+                        android:layout_width="0dp"
                         android:layout_height="50dp"
+                        android:layout_weight="1"
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="5dp"
                         android:text="重置"
+                        android:textColor="@color/theme_blue"
+                        android:textSize="18dp"
+                        />
+
+                <Button
+                        android:id="@+id/btn_screenshot"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="截屏"
                         android:textColor="@color/theme_blue"
                         android:textSize="18dp"
                         />

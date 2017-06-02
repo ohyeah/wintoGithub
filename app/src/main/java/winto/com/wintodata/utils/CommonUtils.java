@@ -46,6 +46,16 @@ public class CommonUtils {
         }
     }
 
+    public static String FloaRateActivityGetFormatData(final double d) {
+        try {
+            DecimalFormat df;
+            df = new DecimalFormat("#.#####");
+            return df.format(d);
+        } catch (Exception e) {
+            return "数据异常";
+        }
+    }
+
     public static void main(String[] args) {
         double d = 1.3455223456;
         System.out.println("d: " + getFormatPercent(d));

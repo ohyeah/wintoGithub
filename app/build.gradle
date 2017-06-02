@@ -15,8 +15,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            resValue("string", "app_name", "威尔沃计算工具")         // debug版本app名称
         }
     }
 }
