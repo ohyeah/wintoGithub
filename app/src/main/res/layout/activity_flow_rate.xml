@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_flow_rate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="流速计算"
+            style="@style/title_text_style"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tv_q_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_q_content"
+        app:layout_constraintTop_toTopOf="@+id/et_q_content"
+        app:layout_constraintBottom_toBottomOf="@+id/et_q_content"
+        android:text="体积流量(Q)"
+        style="@style/style_flowrate_text"
+        tools:layout_editor_absoluteX="20dp"/>
+
+    <EditText
+        android:id="@+id/et_q_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:inputType="numberDecimal"
+        android:hint="请输入体积流量"
+        android:textColorHint="@color/color_b2b2b2"
+        android:textColor="@color/color_222222"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_flow_rate"
+        app:layout_constraintStart_toEndOf="@+id/tv_q_title"
+        app:layout_constraintEnd_toStartOf="@+id/tv_q_weight"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="0.4"
+        tools:layout_editor_absoluteX="137dp"/>
+
+    <TextView
+        android:id="@+id/tv_q_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/et_q_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_q_content"
+        app:layout_constraintBottom_toBottomOf="@+id/et_q_content"
+        android:text="m^3/h"
+        style="@style/style_flowrate_text"
+        tools:layout_editor_absoluteX="314dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_r_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="管道口径(R)"
+        app:layout_constraintStart_toStartOf="@+id/tv_q_title"
+        app:layout_constraintTop_toTopOf="@+id/et_r_content"
+        app:layout_constraintBottom_toBottomOf="@+id/et_r_content"
+
+        style="@style/style_flowrate_text"
+        tools:layout_editor_absoluteX="20dp"/>
+
+    <EditText
+        android:id="@+id/et_r_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="10dp"
+        android:hint="请输入管道口径"
+        android:textColorHint="@color/color_b2b2b2"
+        android:textColor="@color/color_222222"
+        app:layout_constraintStart_toStartOf="@+id/et_q_content"
+        app:layout_constraintEnd_toEndOf="@+id/et_q_content"
+        app:layout_constraintTop_toBottomOf="@+id/et_q_content"
+        tools:layout_editor_absoluteX="137dp"/>
+
+    <TextView
+        android:id="@+id/tv_r_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/et_r_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_r_content"
+        app:layout_constraintBottom_toBottomOf="@+id/et_r_content"
+        android:text="mm"
+        style="@style/style_flowrate_text"
+        tools:layout_editor_absoluteX="324dp"/>
+
+    <TextView
+        android:id="@+id/tv_v_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_r_title"
+        app:layout_constraintEnd_toEndOf="@+id/tv_r_title"
+        app:layout_constraintTop_toTopOf="@+id/et_v_content"
+        app:layout_constraintBottom_toBottomOf="@+id/et_v_content"
+        android:text="流速(V)"
+        style="@style/style_flowrate_result_text"
+        tools:layout_editor_absoluteX="38dp"/>
+
+    <EditText
+        android:id="@+id/et_v_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@null"
+        android:inputType="numberDecimal"
+        android:enabled="false"
+        app:layout_constraintStart_toStartOf="@+id/et_r_content"
+        app:layout_constraintEnd_toEndOf="@+id/et_r_content"
+        app:layout_constraintTop_toBottomOf="@+id/et_r_content"
+        tools:layout_editor_absoluteX="137dp"/>
+
+    <TextView
+        android:id="@+id/tv_v_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/et_v_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_v_content"
+        app:layout_constraintBottom_toBottomOf="@+id/et_v_content"
+        android:text="m/s"
+        style="@style/style_flowrate_text"
+        tools:layout_editor_absoluteX="323dp"/>
+
+    <Button
+        android:id="@+id/btn_calc"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="计算"
+        android:textColor="@color/theme_blue"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_extra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_reset"
+        android:layout_marginBottom="50dp"
+        tools:layout_editor_absoluteX="132dp"/>
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="重置"
+        android:textColor="@color/theme_blue"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_extra"
+        app:layout_constraintStart_toEndOf="@+id/btn_calc"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="50dp"
+        tools:layout_editor_absoluteX="132dp"/>
+
+    <TextView
+        android:id="@+id/tv_extra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="说明：截屏快捷键 电量- 和 锁屏键 同时按下"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="30dp"
+        tools:layout_editor_absoluteX="57dp"/>
+
+</android.support.constraint.ConstraintLayout>

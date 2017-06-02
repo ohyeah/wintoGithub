@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WintoData</string>
+    
+    <string name="first_item">first_item</string>
+    <string name="second_item">second_item</string>
+    <string name="third_item">third_item</string>
+    <string name="fourth_item">fourth_item</string>
+</resources>

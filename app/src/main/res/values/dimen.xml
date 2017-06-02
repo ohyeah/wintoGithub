@@ -1,0 +1,16 @@
+<resources>
+    <dimen name="page_flowrate_textsize">18dp</dimen>
+
+    <!-- 流量校验 -->
+    <dimen name="page_datacheck_et_height">30dp</dimen>
+    <dimen name="page_datacheck_title_textsize">18dp</dimen>
+    <dimen name="page_datacheck_et_textsize">16dp</dimen>
+    <dimen name="page_datacheck_margin_left">10dp</dimen>
+    <dimen name="et_width">100dp</dimen>
+    <dimen name="et_margin">5dp</dimen>
+
+    <!-- 修正点activity -->
+    <dimen name="text_margin_left">4dp</dimen>
+    <dimen name="et_margin_left">5dp</dimen>
+    <dimen name="third_et_height">60dp</dimen>
+</resources>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_blue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修正点、修正数计算"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <!-- 被校时间-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="校表时间(s)"/>
+
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:inputType="numberDecimal"
+            android:background="@drawable/input_background"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="被校口径(mm)"/>
+
+        <EditText
+            android:id="@+id/size"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:inputType="numberDecimal"
+            android:background="@drawable/input_background" />
+
+    </LinearLayout>
+
+    <!-- 被校表1-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="被校表1(L)"/>
+
+        <EditText
+            android:id="@+id/et_data_1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="标准表1(L)"/>
+
+        <EditText
+            android:id="@+id/et_standard_1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <!-- 被校表2-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="被校表2(L)"/>
+
+        <EditText
+            android:id="@+id/et_data_2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="标准表2(L)"/>
+
+        <EditText
+            android:id="@+id/et_standard_2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <!-- 被校表3-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="被校表3(L)"/>
+
+        <EditText
+            android:id="@+id/et_data_3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="标准表3(L)"/>
+
+        <EditText
+            android:id="@+id/et_standard_3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <!-- 平均流量-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:text="平均流量值(m^3/h)"/>
+
+        <EditText
+            android:id="@+id/et_average_data"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:inputType="numberDecimal"
+            android:enabled="false"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:text="平均流量值(m^3/h)"/>
+
+        <EditText
+            android:id="@+id/et_average_standard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <!-- 修正点值、修正点-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="修正点值(m/s)"/>
+
+        <EditText
+            android:id="@+id/et_last_data"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/text_margin_left"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="修正点值(m/s)"/>
+
+        <EditText
+            android:id="@+id/et_last_standard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/third_et_height"
+            android:layout_marginLeft="@dimen/et_margin_left"
+            android:layout_weight="3"
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_calc"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="计算"
+        android:textColor="@color/theme_blue"
+        android:textSize="24dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+
+</LinearLayout>
