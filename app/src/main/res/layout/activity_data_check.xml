@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5">
+        android:layout_weight="9">
 
         <android.support.constraint.ConstraintLayout
             android:orientation="vertical"
@@ -608,71 +608,71 @@
                 app:layout_constraintBottom_toBottomOf="@+id/et_input_6_result"
                 tools:layout_editor_absoluteX="251dp" />
 
-            <LinearLayout
-                    android:layout_width="368dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    app:layout_constraintTop_toBottomOf="@+id/rb_input_6_check"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    tools:layout_editor_absoluteX="8dp">
-
-                <Button
-                        android:id="@+id/btn_calc"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="计算误差"
-                        android:textColor="@color/theme_blue"
-                        android:textSize="14dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="10dp" />
-
-                <Button
-                        android:id="@+id/btn_confirm"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:text="确认选择"
-                        android:textColor="@color/theme_blue"
-                        android:textSize="14dp"
-                        android:layout_marginBottom="10dp" />
-
-                <Button
-                        android:id="@+id/btn_reset"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:text="重置"
-                        android:textColor="@color/theme_blue"
-                        android:textSize="18dp"
-                        />
-
-                <Button
-                        android:id="@+id/btn_screenshot"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:text="截屏"
-                        android:textColor="@color/theme_blue"
-                        android:textSize="18dp"
-                        />
-
-            </LinearLayout>
-
         </android.support.constraint.ConstraintLayout>
 
-
-
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/rb_input_6_check"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="8dp">
+
+        <Button
+            android:id="@+id/btn_calc"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="计算误差"
+            android:textColor="@color/theme_blue"
+            android:textSize="14dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="确认选择"
+            android:textColor="@color/theme_blue"
+            android:textSize="14dp"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:text="重置"
+            android:textColor="@color/theme_blue"
+            android:textSize="18dp"
+            />
+
+        <Button
+            android:id="@+id/btn_screenshot"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:text="截屏"
+            android:textColor="@color/theme_blue"
+            android:textSize="18dp"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -13,8 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import butterknife.Unbinder;
 import winto.com.wintodata.utils.CommonUtils;
 import winto.com.wintodata.utils.KeyboardUtils;
@@ -71,7 +69,7 @@ public class BaseActivity extends AppCompatActivity {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             if (!isTouchOnEditText(ev.getRawX(), ev.getRawY(), getAllEditText())) {
-                KeyboardUtils.hideKeyboard(getApplicationContext(), this);
+                KeyboardUtils.hideKeyboard(this);
             }
         }
         return super.dispatchTouchEvent(ev);
