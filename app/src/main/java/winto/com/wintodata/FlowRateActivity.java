@@ -1,28 +1,20 @@
 package winto.com.wintodata;
 
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import winto.com.wintodata.utils.CommonUtils;
-import winto.com.wintodata.utils.ScreenShotUtils;
-import winto.com.wintodata.utils.SharePreferenceUtils;
+import winto.com.wintodata.fragment.FlowRate_1_Fragment;
+import winto.com.wintodata.fragment.FlowRate_2_Fragment;
 
 /**
  * Created by hkun2012 on 2017/5/28.
@@ -32,48 +24,17 @@ public class FlowRateActivity extends BaseActivity {
     public static final double TEST = 0.001 * 0.001 * 3600 * 3.14;
 
     public static final int RETURN_CODE = 1;
+    private List<Fragment> fragmentList = new ArrayList<>();
+    private MyPagerAdapter adapter;
 
-    @BindView(R.id.et_q_content) EditText etQContent;
-    @BindView(R.id.et_r_content) EditText etRContent;
-    @BindView(R.id.et_v_content) EditText etVContent;
-    @BindView(R.id.btn_calc) Button btnCalc;
-    @BindView(R.id.btn_screenshot) Button btnScreenShot;
+    @BindView(R.id.title_text)
+    TextView title;
+    @BindView(R.id.viewpager)
+    ViewPager viewPager;
 
-    @OnClick(R.id.btn_calc)
-    public void onClickCalc() {
-        try {
-            Log.e("winto", "ddd");
-            if (!CommonUtils.isEmptyString(etQContent.getText().toString()) &&
-                    !CommonUtils.isEmptyString(etRContent.getText().toString())) {
-                double q = Double.valueOf(etQContent.getText().toString());
-                double r = Double.valueOf(etRContent.getText().toString());
-                double result = (q * 4) / (TEST * r * r);
-                Log.e("winto", "q: " + q + "  r: " + r + "  result: " + result);
-                etVContent.setText(CommonUtils.FloaRateActivityGetFormatData(result));
-            } else {
-                Toast.makeText(FlowRateActivity.this, "请检查!", Toast.LENGTH_LONG).show();
-            }
-        } catch (Exception e) {
-            Log.e("winto", Log.getStackTraceString(e));
-            Toast.makeText(FlowRateActivity.this, "请检查输入参数!", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    @OnClick(R.id.btn_reset)
-    public void onClickReset() {
-        etQContent.setText("");
-        etRContent.setText("");
-        etVContent.setText("");
-    }
-
-    @OnClick(R.id.btn_screenshot)
-    public void onClickScreenShot() {
-        doScreenShot(this, btnScreenShot);
-    }
-
-    @Override
-    protected View getScreenShotButton() {
-        return btnScreenShot;
+    @OnClick(R.id.tv_switch)
+    public void onClickSwitch() {
+        switchPage();
     }
 
     @Override
@@ -82,18 +43,65 @@ public class FlowRateActivity extends BaseActivity {
         setContentView(R.layout.activity_flow_rate);
         unbinder = ButterKnife.bind(this);
 
-        ArrayList<String> savedData = SharePreferenceUtils.getAllFlowRateData(FlowRateActivity.this);
-        if (savedData != null && savedData.size() == 3) {
-            etQContent.setText(savedData.get(0));
-            etRContent.setText(savedData.get(1));
-            etVContent.setText(savedData.get(2));
+        fragmentList.add(new FlowRate_1_Fragment());
+        fragmentList.add(new FlowRate_2_Fragment());
+        adapter = new MyPagerAdapter(getSupportFragmentManager(), fragmentList);
+        viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(2);
+        viewPager.setCurrentItem(0);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    title.setText("流量->流速");
+                } else if (position == 1) {
+                    title.setText("流速->流量");
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    public void switchPage() {
+        if (viewPager.getCurrentItem() == 0) {
+            viewPager.setCurrentItem(1, true);
+        } else if (viewPager.getCurrentItem() == 1) {
+            viewPager.setCurrentItem(0, true);
         }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        SharePreferenceUtils.saveAllFlowRateData(FlowRateActivity.this, etQContent.getText().toString(),
-                etRContent.getText().toString(), etVContent.getText().toString());
+    }
+
+    public static class MyPagerAdapter extends FragmentStatePagerAdapter {
+
+        private List<Fragment> mList;
+
+        public MyPagerAdapter(android.support.v4.app.FragmentManager fm, List<Fragment> list) {
+            super(fm);
+            mList = list;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+
+            return mList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mList.size();
+        }
     }
 }

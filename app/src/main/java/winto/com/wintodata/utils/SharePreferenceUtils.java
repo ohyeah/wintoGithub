@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class SharePreferenceUtils {
     public static final String FILE_DATA_CHECK = "file_datacheck";
 
+    public static final String DATA_CHECK_FLOW_DOT = "data_check_flow_dot";
     public static final String DATA_CHECK_INPUT_1_DATA_1 = "data_check_input_1_data_1";
     public static final String DATA_CHECK_INPUT_1_DATA_2 = "data_check_input_1_data_2";
     public static final String DATA_CHECK_INPUT_1_DATA_3 = "data_check_input_1_data_3";
@@ -104,6 +105,10 @@ public class SharePreferenceUtils {
                     .putString(DATA_CHECK_INPUT_6_DIFF, dataList.get(base + 3))
                     .putString(DATA_CHECK_INPUT_6_RESULT, dataList.get(base + 4));
         }
+
+        if (dataList != null && dataList.size() >= 31) {
+            editor.putString(DATA_CHECK_FLOW_DOT, dataList.get(30));
+        }
         editor.apply();
     }
 
@@ -159,6 +164,10 @@ public class SharePreferenceUtils {
                 retData.add(preferences.getString(DATA_CHECK_INPUT_6_RESULT, ""));
             }
 
+            if (!preferences.getString(DATA_CHECK_FLOW_DOT, "").equals("")) {
+                retData.add(preferences.getString(DATA_CHECK_FLOW_DOT, ""));
+            }
+
             return retData;
         } else{
             return  retData;
@@ -200,6 +209,41 @@ public class SharePreferenceUtils {
         retData.add(q);
         retData.add(r);
         retData.add(v);
+        return retData;
+    }
+
+
+    public static final String FILE_FLOW_RATE_2 = "file_flowrate_2";
+    public static void saveAllFlowRateData_2(final Context context, final String v, final String r, final String q) {
+        if (context == null) {
+            return;
+        }
+        SharedPreferences.Editor editor = context.getSharedPreferences(FILE_FLOW_RATE_2, Context.MODE_PRIVATE).edit();
+        editor.clear();
+        if (q != null) {
+            editor.putString(FLOW_RATE_Q_KEY, q);
+        }
+        if (r != null) {
+            editor.putString(FLOW_RATE_R_KEY, r);
+        }
+        if (v != null) {
+            editor.putString(FLOW_RATE_V_KEY, v);
+        }
+        editor.apply();
+    }
+
+    public static ArrayList<String> getAllFlowRateData_2(final Context context) {
+        if (context == null) {
+            return null;
+        }
+        ArrayList<String> retData = new ArrayList<>();
+        SharedPreferences sharedPreferences = context.getSharedPreferences(FILE_FLOW_RATE_2, Context.MODE_PRIVATE);
+        String q = sharedPreferences.getString(FLOW_RATE_Q_KEY, "");
+        String r = sharedPreferences.getString(FLOW_RATE_R_KEY, "");
+        String v = sharedPreferences.getString(FLOW_RATE_V_KEY, "");
+        retData.add(v);
+        retData.add(r);
+        retData.add(q);
         return retData;
     }
 }

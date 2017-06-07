@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ import winto.com.wintodata.utils.SharePreferenceUtils;
 
 public class DataCheckActivity extends BaseActivity {
 
+    @BindView(R.id.flow_dot) EditText etFlowDot;
     @BindView(R.id.et_input_1_data_1) EditText etInput_1_start;
     @BindView(R.id.et_input_1_data_2) EditText etInput_1_end;
     @BindView(R.id.et_input_1_diff) EditText etInput_1_diff;
@@ -83,6 +83,7 @@ public class DataCheckActivity extends BaseActivity {
 
     @OnClick(R.id.btn_reset)
     public void onClickReset() {
+        etFlowDot.setText("");
         etInput_6_start.setText("");
         etInput_6_end.setText("");
         etInput_6_diff.setText("");
@@ -369,6 +370,10 @@ public class DataCheckActivity extends BaseActivity {
             etInput_6_diff.setText(data.get(base + 3));
             etInput_6_result.setText(data.get(base + 4));
         }
+
+        if (data.size() >= 31) {
+            etFlowDot.setText(data.get(30));
+        }
     }
 
     @Override
@@ -425,6 +430,10 @@ public class DataCheckActivity extends BaseActivity {
             data.add(etInput_6_standard.getText().toString());
             data.add(etInput_6_diff.getText().toString());
             data.add(etInput_6_result.getText().toString());
+        }
+
+        if (!etFlowDot.getText().toString().equals("")) {
+            data.add(etFlowDot.getText().toString());
         }
 
         SharePreferenceUtils.saveAllDataCheckData(DataCheckActivity.this, data);

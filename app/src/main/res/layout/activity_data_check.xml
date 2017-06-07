@@ -17,19 +17,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/flow_dot"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@drawable/input_background"
+                android:hint="流量点"
+                android:gravity="center"
+                android:textSize="18dp"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_flow_dot"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_flow_dot"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:text="m^3/h"
+                android:textSize="18dp"
+                android:gravity="center"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintTop_toTopOf="@+id/flow_dot"
+                app:layout_constraintLeft_toRightOf="@+id/flow_dot"
+                app:layout_constraintRight_toRightOf="parent"/>
+
             <!-- 第一组数据 -->
             <TextView
                 android:id="@+id/tv_data_1"
                 android:layout_width="0dp"
                 android:layout_height="24dp"
                 android:background="@color/color_d7d7d7"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flow_dot"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textColor="@color/black"
                 android:textSize="@dimen/page_datacheck_title_textsize"
                 android:gravity="center"
-                android:text="被校表一"
+                android:text="记录一"
                 tools:layout_editor_absoluteX="0dp" />
 
             <EditText
@@ -69,7 +95,7 @@
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:textSize="@dimen/page_datacheck_et_textsize"
-                    android:hint="被校表1-流量"
+                    android:hint="被校表-流量1"
                     android:inputType="numberDecimal"
                     android:background="@drawable/input_background_unness"
                     android:layout_marginRight="@dimen/et_margin"
@@ -83,7 +109,7 @@
                     android:id="@+id/et_input_1_data_3"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:hint="标准表1-流量"
+                    android:hint="标准表-流量1"
                     android:textSize="@dimen/page_datacheck_et_textsize"
                     android:inputType="numberDecimal"
                     android:background="@drawable/input_background"
@@ -126,7 +152,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/page_datacheck_title_textsize"
                 android:gravity="center"
-                android:text="被校表二"
+                android:text="记录二"
                 tools:layout_editor_absoluteX="0dp"
                 android:layout_marginTop="8dp" />
 
@@ -166,7 +192,7 @@
                     android:id="@+id/et_input_2_diff"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:hint="被校表2-流量"
+                    android:hint="被校表-流量2"
                     android:textSize="@dimen/page_datacheck_et_textsize"
                     android:inputType="numberDecimal"
                     android:layout_marginRight="@dimen/et_margin"
@@ -182,7 +208,7 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:background="@drawable/input_background"
-                android:hint="标准表2-流量"
+                android:hint="标准表-流量2"
                 android:textSize="@dimen/page_datacheck_et_textsize"
                 android:inputType="numberDecimal"
                 android:gravity="center_vertical"
@@ -225,7 +251,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/page_datacheck_title_textsize"
                 android:gravity="center"
-                android:text="被校表三"
+                android:text="记录三"
                 tools:layout_editor_absoluteX="0dp"
                 android:layout_marginTop="8dp" />
 
@@ -266,7 +292,7 @@
                 android:id="@+id/et_input_3_diff"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="被校表3-流量"
+                android:hint="被校表-流量3"
                 android:textSize="@dimen/page_datacheck_et_textsize"
                 android:inputType="numberDecimal"
                 android:layout_marginRight="@dimen/et_margin"
@@ -281,7 +307,7 @@
                 android:id="@+id/et_input_3_data_3"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="标准表3-流量"
+                android:hint="标准表-流量3"
                 android:background="@drawable/input_background"
                 android:textSize="@dimen/page_datacheck_et_textsize"
                 android:inputType="numberDecimal"
@@ -324,7 +350,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/page_datacheck_title_textsize"
                 android:gravity="center"
-                android:text="被校表四"
+                android:text="记录四"
                 tools:layout_editor_absoluteX="0dp"
                 android:layout_marginTop="8dp" />
 
@@ -364,7 +390,7 @@
                     android:id="@+id/et_input_4_diff"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:hint="被校表4-流量"
+                    android:hint="被校表-流量4"
                     android:textSize="@dimen/page_datacheck_et_textsize"
                     android:inputType="numberDecimal"
                     android:background="@drawable/input_background_unness"
@@ -379,7 +405,7 @@
                 android:id="@+id/et_input_4_data_3"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="标准表4-流量"
+                android:hint="标准表-流量4"
                 android:background="@drawable/input_background"
                 android:textSize="@dimen/page_datacheck_et_textsize"
                 android:inputType="numberDecimal"
@@ -422,7 +448,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/page_datacheck_title_textsize"
                 android:gravity="center"
-                android:text="被校表五"
+                android:text="记录五"
                 tools:layout_editor_absoluteX="0dp"
                 android:layout_marginTop="8dp" />
 
@@ -462,7 +488,7 @@
                 android:id="@+id/et_input_5_diff"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="被校表5-流量"
+                android:hint="被校表-流量5"
                 android:textSize="@dimen/page_datacheck_et_textsize"
                 android:inputType="numberDecimal"
                 android:background="@drawable/input_background_unness"
@@ -477,7 +503,7 @@
                 android:id="@+id/et_input_5_data_3"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="标准表5-流量"
+                android:hint="标准表-流量5"
                 android:inputType="numberDecimal"
                 android:background="@drawable/input_background"
                 android:textSize="@dimen/page_datacheck_et_textsize"
@@ -520,7 +546,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/page_datacheck_title_textsize"
                 android:gravity="center"
-                android:text="被校表六"
+                android:text="记录六"
                 tools:layout_editor_absoluteX="0dp"
                 android:layout_marginTop="8dp" />
 
@@ -560,7 +586,7 @@
                     android:id="@+id/et_input_6_diff"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:hint="被校表6-流量"
+                    android:hint="被校表-流量6"
                     android:textSize="@dimen/page_datacheck_et_textsize"
                     android:inputType="numberDecimal"
                     android:background="@drawable/input_background_unness"
@@ -575,7 +601,7 @@
                 android:id="@+id/et_input_6_data_3"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="标准表6-流量"
+                android:hint="标准表-流量6"
                 android:background="@drawable/input_background"
                 android:inputType="numberDecimal"
                 android:textSize="@dimen/page_datacheck_et_textsize"
@@ -668,6 +694,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
             android:text="截屏"
             android:textColor="@color/theme_blue"
             android:textSize="18dp"

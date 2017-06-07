@@ -1,0 +1,4 @@
+STORE_FILE = /winto_key.jks
+STORE_PASSWORD = winto2017
+KEY_ALIAS = winto
+KEY_PASSWORD = winto2017
