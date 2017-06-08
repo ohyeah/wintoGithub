@@ -17,6 +17,7 @@ import butterknife.Unbinder;
 import winto.com.wintodata.utils.CommonUtils;
 import winto.com.wintodata.utils.KeyboardUtils;
 import winto.com.wintodata.utils.ScreenShotUtils;
+import winto.com.wintodata.utils.SignatureUtils;
 
 /**
  * Created by hkun2012 on 2017/5/28.
@@ -104,5 +105,14 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!BuildConfig.IS_DEBUG && !SignatureUtils.checkSignature(this)) {
+            Toast.makeText(this, "此版本为盗版应用，请从正规渠道下载!", Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 }

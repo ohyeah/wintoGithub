@@ -43,7 +43,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Q3(1.5-Q)"
+                android:text="Q3"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:gravity="center"
@@ -57,6 +57,39 @@
                 android:layout_weight="3"
                 android:layout_marginLeft="5dp"
                 android:enabled="false"
+                android:gravity="center"
+                android:background="@drawable/input_background"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="1.5"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:background="@color/theme_blue"
+                />
+
+            <EditText
+                android:id="@+id/et_data_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="5dp"
+                android:enabled="false"
+                android:gravity="center"
                 android:background="@drawable/input_background"/>
 
         </LinearLayout>
@@ -82,12 +115,13 @@
                 />
 
             <EditText
-                android:id="@+id/et_data_2"
+                android:id="@+id/et_data_3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:layout_marginLeft="5dp"
                 android:enabled="false"
+                android:gravity="center"
                 android:background="@drawable/input_background"/>
 
         </LinearLayout>
@@ -113,12 +147,13 @@
                 />
 
             <EditText
-                android:id="@+id/et_data_3"
+                android:id="@+id/et_data_4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:layout_marginLeft="5dp"
                 android:enabled="false"
+                android:gravity="center"
                 android:background="@drawable/input_background"/>
 
         </LinearLayout>
@@ -136,7 +171,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Q2(0.139-Q)"
+                android:text="0.139"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:gravity="center"
@@ -144,12 +179,13 @@
                 />
 
             <EditText
-                android:id="@+id/et_data_4"
+                android:id="@+id/et_data_5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:layout_marginLeft="5dp"
                 android:enabled="false"
+                android:gravity="center"
                 android:background="@drawable/input_background"/>
 
         </LinearLayout>
@@ -175,43 +211,13 @@
                 />
 
             <EditText
-                android:id="@+id/et_data_5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:layout_marginLeft="5dp"
-                android:enabled="false"
-                android:background="@drawable/input_background"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="0.05"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:background="@color/theme_blue"
-                />
-
-            <EditText
                 android:id="@+id/et_data_6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:layout_marginLeft="5dp"
                 android:enabled="false"
+                android:gravity="center"
                 android:background="@drawable/input_background"/>
 
         </LinearLayout>
@@ -230,7 +236,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Q1(0.022-Q)"
+                android:text="0.05"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:gravity="center"
@@ -243,6 +249,106 @@
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:layout_marginLeft="5dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:background="@drawable/input_background"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="Q2"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:background="@color/theme_blue"
+                />
+
+            <EditText
+                android:id="@+id/et_data_8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="5dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:background="@drawable/input_background"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="Q1"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:background="@color/theme_blue"
+                />
+
+            <EditText
+                android:id="@+id/et_data_9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="5dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:background="@drawable/input_background"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="0.022"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:background="@color/theme_blue"
+                />
+
+            <EditText
+                android:id="@+id/et_data_10"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:enabled="false"
                 android:background="@drawable/input_background"/>
 

@@ -28,6 +28,12 @@ android {
             minifyEnabled true
             shrinkResources true
             signingConfig signingConfigs.release
+
+            buildConfigField "boolean", "IS_DEBUG", "false"
+        }
+
+        debug {
+            buildConfigField "boolean", "IS_DEBUG", "true"
         }
     }
 
