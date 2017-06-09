@@ -1,5 +1,8 @@
 package winto.com.wintodata.utils;
 
+import android.util.Log;
+
+import java.security.MessageDigest;
 import java.text.DecimalFormat;
 
 /**
@@ -53,6 +56,20 @@ public class CommonUtils {
             return df.format(d);
         } catch (Exception e) {
             return "数据异常";
+        }
+    }
+
+    public static int getMD5Sum(String input) {
+        try {
+            String result = new String(MessageDigest.getInstance("MD5").digest(input.getBytes("utf-8")), "utf-8");
+            int sum = 0;
+            for (byte b : result.getBytes("utf-8")) {
+                sum += (int) b;
+            }
+            Log.d("winto", "string: " + input + "  sum: " + sum);
+            return sum;
+        } catch (Exception e) {
+            return 0;
         }
     }
 

@@ -13,16 +13,17 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
+            android:gravity="center"
             android:textSize="18dp"
             android:text="登录密码: "/>
 
         <EditText
             android:id="@+id/dialog_password"
             android:layout_width="80dp"
-            android:layout_height="20dp"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="20dp"

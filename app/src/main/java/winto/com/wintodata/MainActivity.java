@@ -3,12 +3,14 @@ package winto.com.wintodata;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 
 import butterknife.ButterKnife;
+import winto.com.wintodata.utils.CommonUtils;
 import winto.com.wintodata.utils.DateCheckUtils;
 import winto.com.wintodata.widget.PopupConfirmDialog;
 
@@ -34,11 +36,20 @@ public class MainActivity extends BaseActivity {
                             .setCanForceClose(false)
                             .setPositiveButtonText("确认", new PopupConfirmDialog.OnConfirmListener() {
                                 @Override
-                                public void onConfirm(String data) {
-                                    if (data.equals("9038")) {
-
-                                    } else {
-                                        finish();
+                                public boolean onConfirm(String data) {
+                                    try {
+                                        Log.d("winto", "md5 sum: " + CommonUtils.getMD5Sum("9038"));
+                                        if (CommonUtils.getMD5Sum(data) == -1142) {
+                                            Toast.makeText(MainActivity.this, "密码校验成功!", Toast.LENGTH_SHORT).show();
+                                            DateCheckUtils.saveCheckTime(MainActivity.this);
+                                            return true;
+                                        } else {
+                                            Toast.makeText(MainActivity.this, "密码校验失败!", Toast.LENGTH_SHORT).show();
+                                            finish();
+                                            return false;
+                                        }
+                                    } catch (Exception e) {
+                                        return false;
                                     }
                                 }
                             })

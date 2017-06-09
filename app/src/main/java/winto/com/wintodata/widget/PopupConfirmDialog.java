@@ -89,7 +89,9 @@ public class PopupConfirmDialog extends Dialog {
                         @Override
                         public void onClick(View v) {
                             if (editText != null) {
-                                mClickListener.onConfirm(editText.getText().toString());
+                                if (mClickListener.onConfirm(editText.getText().toString())) {
+                                    dialog.dismiss();
+                                }
                             }
                         }
                     });
@@ -122,6 +124,6 @@ public class PopupConfirmDialog extends Dialog {
     }
 
     public interface OnConfirmListener {
-        public void onConfirm(String data);
+        public boolean onConfirm(String data);
     }
 }
