@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,16 +25,16 @@ public class DataQueryActivity extends BaseActivity {
 
     @BindView(R.id.spinner_query)
     Spinner spinnerQuery;
-    @BindView(R.id.et_data_1) EditText etData_1;
-    @BindView(R.id.et_data_2) EditText etData_2;
-    @BindView(R.id.et_data_3) EditText etData_3;
-    @BindView(R.id.et_data_4) EditText etData_4;
-    @BindView(R.id.et_data_5) EditText etData_5;
-    @BindView(R.id.et_data_6) EditText etData_6;
-    @BindView(R.id.et_data_7) EditText etData_7;
-    @BindView(R.id.et_data_8) EditText etData_8;
-    @BindView(R.id.et_data_9) EditText etData_9;
-    @BindView(R.id.et_data_10) EditText etData_10;
+    @BindView(R.id.et_data_1) TextView etData_1;
+    @BindView(R.id.et_data_2) TextView etData_2;
+    @BindView(R.id.et_data_3) TextView etData_3;
+    @BindView(R.id.et_data_4) TextView etData_4;
+    @BindView(R.id.et_data_5) TextView etData_5;
+    @BindView(R.id.et_data_6) TextView etData_6;
+    @BindView(R.id.et_data_7) TextView etData_7;
+    @BindView(R.id.et_data_8) TextView etData_8;
+    @BindView(R.id.et_data_9) TextView etData_9;
+    @BindView(R.id.et_data_10) TextView etData_10;
 
     public static final String DN25 = "DN25";
     public static final String DN50 = "DN50";

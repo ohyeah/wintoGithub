@@ -22,11 +22,12 @@
 
         <EditText
             android:id="@+id/dialog_password"
-            android:layout_width="80dp"
+            android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="20dp"
+            android:inputType="textPassword"
             android:background="@drawable/input_background"/>
 
     </LinearLayout>

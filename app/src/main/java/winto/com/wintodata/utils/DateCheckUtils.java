@@ -13,7 +13,7 @@ public class DateCheckUtils {
     public static final String FILE_NAME = "winto_data";
     public static final String KEY_NEXT = "next_today";
 
-    public static final long INTERNAL = 1000 * 60 * 5;
+    public static final long INTERNAL = (long)1000 * 60 * 60 * 24 * 90;
 
     public static boolean checkNeedDate(final Context context) {
         SharedPreferences sharedPreferences =  context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);

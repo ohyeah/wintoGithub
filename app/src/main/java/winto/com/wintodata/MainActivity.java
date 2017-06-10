@@ -3,7 +3,6 @@ package winto.com.wintodata;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
@@ -38,8 +37,7 @@ public class MainActivity extends BaseActivity {
                                 @Override
                                 public boolean onConfirm(String data) {
                                     try {
-                                        Log.d("winto", "md5 sum: " + CommonUtils.getMD5Sum("9038"));
-                                        if (CommonUtils.getMD5Sum(data) == -1142) {
+                                        if (CommonUtils.getMD5Sum(data) == -1039) {
                                             Toast.makeText(MainActivity.this, "密码校验成功!", Toast.LENGTH_SHORT).show();
                                             DateCheckUtils.saveCheckTime(MainActivity.this);
                                             return true;

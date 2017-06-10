@@ -639,18 +639,15 @@
     </ScrollView>
 
     <LinearLayout
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:layout_constraintTop_toBottomOf="@+id/rb_input_6_check"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="8dp">
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btn_calc"
@@ -660,6 +657,7 @@
             android:text="计算误差"
             android:textColor="@color/theme_blue"
             android:textSize="14dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="10dp" />
 
@@ -682,6 +680,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:text="重置"
             android:textColor="@color/theme_blue"
             android:textSize="18dp"
@@ -694,7 +693,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="5dp"
             android:text="截屏"
             android:textColor="@color/theme_blue"
             android:textSize="18dp"
