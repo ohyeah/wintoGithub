@@ -1,12 +1,16 @@
 package winto.com.wintodata;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -16,6 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import winto.com.wintodata.utils.CommonUtils;
 import winto.com.wintodata.utils.SharePreferenceUtils;
+import winto.com.wintodata.widget.PopupConfirmDialog;
 
 /**
  * Created by hkun2012 on 2017/5/29.
@@ -23,6 +28,7 @@ import winto.com.wintodata.utils.SharePreferenceUtils;
 
 public class DataCheckActivity extends BaseActivity {
 
+    @BindView(R.id.title_number) TextView tvTitle;
     @BindView(R.id.flow_dot) EditText etFlowDot;
     @BindView(R.id.et_input_1_data_1) EditText etInput_1_start;
     @BindView(R.id.et_input_1_data_2) EditText etInput_1_end;
@@ -172,6 +178,23 @@ public class DataCheckActivity extends BaseActivity {
 
     }
 
+    public Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            switch (msg.what)  {
+                case 1:
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    private long exitTime;
+
     @Override
     public View[] getAllEditText() {
         return new View[]{etInput_1_start, etInput_1_end, etInput_1_standard, etInput_1_diff, etInput_1_result,
@@ -313,6 +336,55 @@ public class DataCheckActivity extends BaseActivity {
         unbinder = ButterKnife.bind(this);
 
         initData();
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                showNumberInputDialog();
+            }
+
+
+        });
+    }
+
+    private void showNumberInputDialog() {
+        PopupConfirmDialog.Builder builder = new PopupConfirmDialog.Builder(DataCheckActivity.this);
+        builder.setCanceledOnTouchOutside(false)
+                .setCanForceClose(false)
+                .setHintText("请输入法兰编号: ")
+                .setPositiveButton("确认", new PopupConfirmDialog.OnConfirmListener() {
+                    @Override
+                    public boolean onConfirm(String data) {
+                        if (data.length() >= 5 && data.length() <= 9) {
+                            // // TODO: 2017/6/18
+                            if (tvTitle != null) {
+                                tvTitle.setText(data);
+                                return true;
+                            } else {
+                                Toast.makeText(DataCheckActivity.this, "系统异常，请稍后再试", Toast.LENGTH_LONG).show();
+                                finish();
+                                return false;
+                            }
+                        } else {
+                            Toast.makeText(DataCheckActivity.this, "法兰编号的长度应为5-9", Toast.LENGTH_LONG).show();
+                            return false;
+                        }
+                    }
+                })
+                .setNegtiveButton("取消", new PopupConfirmDialog.OnConfirmListener() {
+                    @Override
+                    public boolean onConfirm(String data) {
+                        try {
+                            finish();
+                            return true;
+                        } catch (Exception e) {
+                            return false;
+                        }
+                    }
+                })
+                .setNotPassword()
+                .setKeyDisable(true)
+                .createView()
+                .show();
     }
 
     private void initData() {
@@ -380,6 +452,20 @@ public class DataCheckActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         saveAllData();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), "再按一次退出本页面", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+                return true;
+            } else {
+                finish();
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void saveAllData() {

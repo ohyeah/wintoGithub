@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Point;
+import android.text.InputType;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -29,25 +30,34 @@ public class PopupConfirmDialog extends Dialog {
 
     public static class Builder {
         private Context mContext;
-        private String mPositiveButtonText = null;
+        private String mPositiveButtonText = null, mNegBtnText;
+        private String mHintText = null;
+        private boolean mETPasswordOrNot = true;
 
         private PopupConfirmDialog mDialog;
 
         private boolean mCanceledOnTouchOutside = false;
         private boolean mKeyDisable = false;
 
-        private OnConfirmListener mClickListener;
+        private OnConfirmListener mPosClickListener, mNegClickListener;
         private DialogInterface.OnDismissListener mDismissListner;
 
         public Builder(Context context) {
             this.mContext = context;
         }
 
-        public Builder setPositiveButtonText(String t, OnConfirmListener listener) {
+        public Builder setPositiveButton(String t, OnConfirmListener listener) {
             this.mPositiveButtonText = t;
-            this.mClickListener = listener;
+            this.mPosClickListener = listener;
             return this;
         }
+
+        public Builder setNegtiveButton(final String t, OnConfirmListener listener) {
+            this.mNegBtnText = t;
+            this.mNegClickListener = listener;
+            return this;
+        }
+
 
         public Builder setCanceledOnTouchOutside(boolean flag) {
             this.mCanceledOnTouchOutside = flag;
@@ -64,8 +74,18 @@ public class PopupConfirmDialog extends Dialog {
             return this;
         }
 
+        public Builder setHintText(final String t) {
+            this.mHintText =t;
+            return this;
+        }
+
         public Builder setKeyDisable(boolean disable) {
             mKeyDisable = disable;
+            return this;
+        }
+
+        public Builder setNotPassword() {
+            this.mETPasswordOrNot = false;
             return this;
         }
 
@@ -80,16 +100,28 @@ public class PopupConfirmDialog extends Dialog {
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams((int)(p.x * 0.8), ViewGroup.LayoutParams.WRAP_CONTENT);
             dialog.addContentView(layout, params);
 
+            if (mHintText != null) {
+                TextView tvHint = ((TextView) layout.findViewById(R.id.tv_hint_text));
+                if (tvHint != null ) {
+                    tvHint.setText(mHintText);
+                }
+            }
+
+            if (!mETPasswordOrNot) {
+                EditText etText = ((EditText) layout.findViewById(R.id.dialog_password));
+                etText.setInputType(InputType.TYPE_CLASS_TEXT);
+            }
+
             TextView posButton = (TextView)layout.findViewById(R.id.dialog_positive_button);
             final EditText editText = (EditText)layout.findViewById(R.id.dialog_password);
             if (mPositiveButtonText != null) {
                 posButton.setText(mPositiveButtonText);
-                if (mClickListener != null) {
+                if (mPosClickListener != null) {
                     posButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             if (editText != null) {
-                                if (mClickListener.onConfirm(editText.getText().toString())) {
+                                if (mPosClickListener.onConfirm(editText.getText().toString())) {
                                     dialog.dismiss();
                                 }
                             }
@@ -98,6 +130,24 @@ public class PopupConfirmDialog extends Dialog {
                 }
             }
 
+            if (mNegBtnText != null || mNegClickListener != null) {
+                final TextView negBtn = ((TextView) layout.findViewById(R.id.dialog_negtive_button));
+                negBtn.setVisibility(View.VISIBLE);
+                if (mNegBtnText != null) {
+                    negBtn.setText(mNegBtnText);
+                }
+
+                if (mNegClickListener != null) {
+                    negBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (mNegClickListener.onConfirm(negBtn.getText().toString())) {
+                                dialog.dismiss();
+                            }
+                        }
+                    });
+                }
+            }
 
 
             if (mDismissListner != null) {

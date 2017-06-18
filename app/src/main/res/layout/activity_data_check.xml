@@ -17,6 +17,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/title_number"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:textColor="@color/red"
+                android:textSize="20dp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                />
+
             <EditText
                 android:id="@+id/flow_dot"
                 android:layout_width="0dp"
@@ -27,10 +39,10 @@
                 android:textSize="18dp"
                 android:inputType="numberDecimal"
                 app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_number"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/tv_flow_dot"
-                android:layout_marginBottom="5dp"/>
+                />
 
             <TextView
                 android:id="@+id/tv_flow_dot"
@@ -139,7 +151,7 @@
                 app:layout_constraintStart_toEndOf="@+id/et_input_1_result"
                 app:layout_constraintTop_toTopOf="@+id/et_input_1_data_3"
                 app:layout_constraintBottom_toBottomOf="@+id/et_input_1_result"
-                tools:layout_editor_absoluteX="256dp" />
+                tools:layout_editor_absoluteX="251dp" />
 
             <!-- 第二组数据 -->
             <TextView
@@ -238,7 +250,7 @@
                 app:layout_constraintStart_toEndOf="@+id/et_input_2_result"
                 app:layout_constraintTop_toTopOf="@+id/et_input_2_data_3"
                 app:layout_constraintBottom_toBottomOf="@+id/et_input_2_result"
-                tools:layout_editor_absoluteX="256dp" />
+                tools:layout_editor_absoluteX="251dp" />
 
             <!-- 第三组数据 -->
             <TextView
@@ -337,7 +349,7 @@
                 app:layout_constraintStart_toEndOf="@+id/et_input_3_result"
                 app:layout_constraintTop_toTopOf="@+id/et_input_3_data_3"
                 app:layout_constraintBottom_toBottomOf="@+id/et_input_3_result"
-                tools:layout_editor_absoluteX="256dp" />
+                tools:layout_editor_absoluteX="251dp" />
 
             <!-- 第四组数据 -->
             <TextView
@@ -435,7 +447,7 @@
                 app:layout_constraintStart_toEndOf="@+id/et_input_4_result"
                 app:layout_constraintTop_toTopOf="@+id/et_input_4_data_3"
                 app:layout_constraintBottom_toBottomOf="@+id/et_input_4_result"
-                tools:layout_editor_absoluteX="256dp" />
+                tools:layout_editor_absoluteX="251dp" />
 
             <!-- 第五组数据 -->
             <TextView
@@ -533,7 +545,7 @@
                 app:layout_constraintStart_toEndOf="@+id/et_input_5_result"
                 app:layout_constraintTop_toTopOf="@+id/et_input_5_data_3"
                 app:layout_constraintBottom_toBottomOf="@+id/et_input_5_result"
-                tools:layout_editor_absoluteX="256dp" />
+                tools:layout_editor_absoluteX="251dp" />
 
             <!-- 第六组数据 -->
             <TextView
