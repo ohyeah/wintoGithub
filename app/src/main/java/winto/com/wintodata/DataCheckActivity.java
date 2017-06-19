@@ -350,7 +350,7 @@ public class DataCheckActivity extends BaseActivity {
         PopupConfirmDialog.Builder builder = new PopupConfirmDialog.Builder(DataCheckActivity.this);
         builder.setCanceledOnTouchOutside(false)
                 .setCanForceClose(false)
-                .setHintText("请输入法兰编号: ")
+                .setHintText("法兰编号: ")
                 .setPositiveButton("确认", new PopupConfirmDialog.OnConfirmListener() {
                     @Override
                     public boolean onConfirm(String data) {

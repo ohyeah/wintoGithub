@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity {
                     PopupConfirmDialog.Builder builder = new PopupConfirmDialog.Builder(MainActivity.this);
                     builder.setCanceledOnTouchOutside(false)
                             .setCanForceClose(false)
-                            .setHintText("请输入登录密码: ")
+                            .setHintText("登录密码: ")
                             .setPositiveButton("确认", new PopupConfirmDialog.OnConfirmListener() {
                                 @Override
                                 public boolean onConfirm(String data) {
